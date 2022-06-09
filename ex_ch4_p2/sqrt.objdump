@@ -1,0 +1,77 @@
+
+sqrt.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010074 <.text>:
+   10074:	80418513          	addi	a0,gp,-2044
+   10078:	00400893          	li	a7,4
+   1007c:	00000073          	ecall
+   10080:	00001517          	auipc	a0,0x1
+   10084:	08852503          	lw	a0,136(a0) # 0x11108
+   10088:	00100893          	li	a7,1
+   1008c:	00000073          	ecall
+   10090:	024000ef          	jal	ra,0x100b4
+   10094:	00050293          	mv	t0,a0
+   10098:	80c18513          	addi	a0,gp,-2036
+   1009c:	00400893          	li	a7,4
+   100a0:	00000073          	ecall
+   100a4:	00028513          	mv	a0,t0
+   100a8:	00100893          	li	a7,1
+   100ac:	00000073          	ecall
+   100b0:	0540006f          	j	0x10104
+   100b4:	ffc10113          	addi	sp,sp,-4
+   100b8:	00112023          	sw	ra,0(sp)
+   100bc:	01000293          	li	t0,16
+   100c0:	00000313          	li	t1,0
+   100c4:	00000393          	li	t2,0
+   100c8:	00139393          	slli	t2,t2,0x1
+   100cc:	00231e13          	slli	t3,t1,0x2
+   100d0:	41e55e93          	srai	t4,a0,0x1e
+   100d4:	01de6333          	or	t1,t3,t4
+   100d8:	00251513          	slli	a0,a0,0x2
+   100dc:	0063d863          	bge	t2,t1,0x100ec
+   100e0:	0013ee13          	ori	t3,t2,1
+   100e4:	41c30333          	sub	t1,t1,t3
+   100e8:	00238393          	addi	t2,t2,2
+   100ec:	fff28293          	addi	t0,t0,-1
+   100f0:	fc504ce3          	bgtz	t0,0x100c8
+   100f4:	4013d513          	srai	a0,t2,0x1
+   100f8:	00012083          	lw	ra,0(sp)
+   100fc:	00410113          	addi	sp,sp,4
+   10100:	00008067          	ret
+   10104:	00000013          	nop
+
+Disassembly of section .data:
+
+00011108 <.data>:
+   11108:	0000                	unimp
+   1110a:	0001                	nop
+   1110c:	6e49                	lui	t3,0x12
+   1110e:	7570                	flw	fa2,108(a0)
+   11110:	3a74                	fld	fa3,240(a2)
+   11112:	0020                	addi	s0,sp,8
+   11114:	530a                	lw	t1,160(sp)
+   11116:	7271                	lui	tp,0xffffc
+   11118:	3a74                	fld	fa3,240(a2)
+   1111a:	0020                	addi	s0,sp,8
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1e41                	addi	t3,t3,-16
+   2:	0000                	unimp
+   4:	7200                	flw	fs0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,0x14
+   c:	0014                	0x14
+   e:	0000                	unimp
+  10:	7205                	lui	tp,0xfffe1
+  12:	3376                	fld	ft6,376(sp)
+  14:	6932                	flw	fs2,12(sp)
+  16:	7032                	flw	ft0,44(sp)
+  18:	5f30                	lw	a2,120(a4)
+  1a:	326d                	jal	0xfffff9c4
+  1c:	3070                	fld	fa2,224(s0)
+	...
